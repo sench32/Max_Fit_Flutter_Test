@@ -12,6 +12,9 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
 TextEditingController _emailController = TextEditingController();
 TextEditingController _pusswordController = TextEditingController();
 
+String _email, _pussword;
+bool showLongin = true;
+
   @override
   Widget build(BuildContext context) {
 
@@ -96,14 +99,96 @@ TextEditingController _pusswordController = TextEditingController();
       );
     }
 
+    void _buttonAction(){
+      _email = _emailController.text;
+      _pussword = _pusswordController.text;
+
+      _emailController.clear();
+      _pusswordController.clear(); 
+    }
+
+    Widget _buttomWave() {
+      return Expanded(
+        child: Align(
+          child: ClipPath(
+            child: Container(
+              color: Colors.white,
+              height: 300,
+            ),
+            clipper: BottomWaveClipper(),
+          ),
+          alignment: Alignment.bottomCenter,
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: <Widget>[
           _logo(),
-          _form('LOGIN', (){ }),
+          SizedBox(height: 100,),
+          (
+            showLongin 
+            ? 
+            Column(
+              children: <Widget>[
+            _form('LOGIN', _buttonAction),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: GestureDetector(
+                child: Text('Not registered yet? Regisre!', style: TextStyle(fontSize: 20, color: Colors.white)),
+                onTap:(){
+                  setState(() {
+                    showLongin = false;
+                  });
+                }
+              ),
+            )
+          ],
+          )
+          :Column(
+              children: <Widget>[
+            _form('REGISTER', _buttonAction),
+            Padding(
+              padding: EdgeInsets.all(10),
+              child: GestureDetector(
+                child: Text('Already registered ? Login!', style: TextStyle(fontSize: 20, color: Colors.white)),
+                onTap:(){
+                  setState(() {
+                    showLongin = true;
+                  });
+                }
+              ),
+            )
+          ],
+          )
+         ),
+         _buttomWave()
+
         ],
       ),
     );
   }
+}
+
+class BottomWaveClipper extends CustomClipper <Path> {
+
+@override 
+Path getClip(Size size){
+  var path = Path();
+  path.moveTo(size.width, 0.0);
+  path.lineTo(size.width, size.height);
+  path.lineTo(0.0, size.height);
+  path.lineTo(0.0, size.height + 5);
+  var secondControlPoint = Offset(size.width - (size.width / 6), size.height);
+  var secondEndlPoint = Offset(size.width, 0.0);
+  path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy, 
+  secondEndlPoint.dx, secondEndlPoint.dy);
+
+  return path;
+}
+
+@override 
+bool shouldReclip(CustomClipper <Path> oldClipper) => false;
 }
