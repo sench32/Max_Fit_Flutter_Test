@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AuthorizationPage extends StatefulWidget {
@@ -169,6 +170,12 @@ bool showLongin = true;
         ],
       ),
     );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('_pussword', _pussword));
+    properties.add(StringProperty('_email', _email));
   }
 }
 
