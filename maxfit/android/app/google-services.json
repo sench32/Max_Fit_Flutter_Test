@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "152106378738",
+    "firebase_url": "https://maxfit-dev-290ca.firebaseio.com",
+    "project_id": "maxfit-dev-290ca",
+    "storage_bucket": "maxfit-dev-290ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152106378738:android:0d16bf626571332d05376b",
+        "android_client_info": {
+          "package_name": "com.senchtest.maxfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "152106378738-mukc1jra9cu0lu2rdpe80rja5e0nln12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBljLd9qPS_ziMXY9TMP5ghM2baXv822v8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "152106378738-mukc1jra9cu0lu2rdpe80rja5e0nln12.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
