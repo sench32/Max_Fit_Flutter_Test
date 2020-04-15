@@ -91,7 +91,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
             Padding(
               padding: EdgeInsets.only(bottom: 20),
               child: _input(
-                  Icon(Icons.lock), 'PUSSWORD', _passwordController, true),
+                  Icon(Icons.lock), 'PASSWORD', _passwordController, true),
             ),
             SizedBox(
               height: 20,
