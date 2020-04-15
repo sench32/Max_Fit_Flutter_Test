@@ -176,7 +176,7 @@ class _AuthorizationPageState extends State<AuthorizationPage> {
         children: <Widget>[
           _logo(),
           SizedBox(
-            height: 100,
+            height: 60,
           ),
           (showLongin
               ? Column(
